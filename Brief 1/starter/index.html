@@ -36,8 +36,8 @@
 				</div>
 
 				<div class="">
-					<button type="button" class="bouton" data-bs-toggle="modal" data-bs-target="#modalTask"><i
-							class="fa fa-plus fa-lg pe-2"></i>Add Task</button>
+					<button id= "addTask" type="button" class="bouton" data-bs-toggle="modal" data-bs-target="#modalTask">
+						<i class="fa fa-plus fa-lg pe-2"></i>Add Task</button>
 				</div>
 			</div>
 
@@ -48,9 +48,9 @@
 							<h4 class="text-white py-2 ps-3 mb-0">To do (<span id="to-do-tasks-count">5</span>)</h4>
 
 						</div>
-						<div class="d-flex flex-column" id="to-do-tasks">
+						<div class="d-flex flex-column" id="toDoTask">
 							<!-- TO DO TASKS HERE -->
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<!-- <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-question fa-lg pe-3 pt-3"></i>
 								</div>
@@ -68,7 +68,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-question fa-lg pe-3 pt-3"></i>
 								</div>
@@ -77,10 +77,10 @@
 									<div class="">
 										<div class="text-black-50">#2 created in 2022-10-08</div>
 										<div class="mb-2" title="Descriptive requirements are very helpful when it comes to understanding the context of a problem, yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, descriptive text but he will be able to easily get to the essence. One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
-						a) User navigates to “/accounts” and clicks on red download CSV button
-						b) Popup appears with two buttons: “This year” and “Last year”
-						c) If user clicked on “Last year” download is initiated
-						d) CSV downloaded includes following columns…">Descriptive requirements are very helpful when it comes...</div>
+							a) User navigates to “/accounts” and clicks on red download CSV button
+							b) Popup appears with two buttons: “This year” and “Last year”
+							c) If user clicked on “Last year” download is initiated
+							d) CSV downloaded includes following columns…">Descriptive requirements are very helpful when it comes...</div>
 									</div>
 									<div class="">
 										<span class="bg-primary text-white rounded-1 fw-bold">High</span>
@@ -88,7 +88,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-question fa-lg pe-3 pt-3"></i>
 								</div>
@@ -106,7 +106,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-question fa-lg pe-3 pt-3"></i>
 								</div>
@@ -124,7 +124,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pt-2 pb-3 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pt-2 pb-3 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-question fa-lg pe-3 pt-3"></i>
 								</div>
@@ -141,7 +141,7 @@
 										<span class="bg-light rounded-1 fw-bold">Feature</span>
 									</div>
 								</div>
-							</button>
+							</button> -->
 						</div>
 					</div>
 				</div>
@@ -152,9 +152,9 @@
 									id="in-progress-tasks-count">4</span>)</h4>
 
 						</div>
-						<div class="d-flex flex-column" id="in-progress-tasks">
+						<div class="d-flex flex-column" id="inProgressTask">
 							<!-- IN PROGRESS TASKS HERE -->
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<!-- <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa fa-circle-notch fa-lg pe-3 pt-3"></i>
 								</div>
@@ -171,7 +171,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa fa-circle-notch fa-lg pe-3 pt-3"></i>
 								</div>
@@ -189,7 +189,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa fa-circle-notch fa-lg pe-3 pt-3"></i>
 								</div>
@@ -207,7 +207,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa fa-circle-notch fa-lg pe-3 pt-3"></i>
 								</div>
@@ -224,19 +224,19 @@
 										<span class="bg-light rounded-1 fw-bold">Bug</span>
 									</div>
 								</div>
-							</button>
+							</button> -->
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-12 col-lg-4">
+				<div class="col-sm-12 col-lg-4">	
 					<div class="">
 						<div class="bar rounded-top">
 							<h4 class="text-white py-2 ps-3 mb-0">Done (<span id="done-tasks-count">4</span>)</h4>
 
 						</div>
-						<div class="d-flex flex-column" id="done-tasks">
+						<div class="d-flex flex-column" id="doneTask">
 							<!-- DONE TASKS HERE -->
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<!-- <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-check fa-lg pe-3 pt-3"></i>
 								</div>
@@ -254,7 +254,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-check fa-lg pe-3 pt-3"></i>
 								</div>
@@ -273,7 +273,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-check fa-lg pe-3 pt-3"></i>
 								</div>
@@ -291,7 +291,7 @@
 									</div>
 								</div>
 							</button>
-							<button class="border-0 border-bottom d-flex px-3 pb-3 pt-2 bg-white">
+							<button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
 								<div class="">
 									<i class="fa-regular fa-circle-check fa-lg pe-3 pt-3"></i>
 								</div>
@@ -308,7 +308,7 @@
 										<span class="bg-light rounded-1 fw-bold">Bug</span>
 									</div>
 								</div>
-							</button>
+							</button> -->
 						</div>
 					</div>
 				</div>
@@ -330,11 +330,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+					<h5 class="modal-title" id="add">Add Task</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form id="form">
 						<div class="mb-2">
 							<label for="title" class="col-form-label">Title</label>
 							<input type="text" class="form-control" id="title">
@@ -343,14 +343,14 @@
 						<div class="ps-3 mb-2">
 							<div class="form-check">
 								<input class="form-check-input" type="radio" name="flexRadioDefault"
-									id="flexRadioDefault1">
+									id="feature">
 								<label class="form-check-label" for="flexRadioDefault1">
 									Feature
 								</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="radio" name="flexRadioDefault"
-									id="flexRadioDefault2" checked>
+									id="bug" checked>
 								<label class="form-check-label" for="flexRadioDefault2">
 									Bug
 								</label>
@@ -380,7 +380,7 @@
 
 						<div class="mb-2">
 							<label for="description" class="col-form-label">Description</label>
-							<textarea class="form-control" id="description"></textarea>
+							<textarea class="form-control" id="description" cols="30" rows="6"></textarea>
 						</div>
 					</form>
 				</div>
@@ -396,6 +396,8 @@
 	<script src="assets/js/vendor.min.js"></script>
 	<script src="assets/js/app.min.js"></script>
 	<!-- ================== END core-js ================== -->
+	<script src="assets/js/data.js"></script>
+	<script src="assets/js/app.js"></script>
 </body>
 
 </html>
