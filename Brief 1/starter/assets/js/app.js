@@ -6,21 +6,56 @@
 let toDoTask = document.getElementById('toDoTask');
 let inProgressTask = document.getElementById('inProgressTask');
 let doneTask = document.getElementById('doneTask');
-let countHash = 0;
+let countToDoTasks = document.getElementById('to-do-tasks-count');
+let countInProgressTasks = document.getElementById('in-progress-tasks-count');
+let countDoneTasks = document.getElementById('done-tasks-count');
+let title = document.getElementById('title');
+let type = document.querySelector('.form-check-input:checked');
+let priority = document.getElementById('priority');
+let Status = document.getElementById('status');
+let date = document.getElementById('date');
+let description = document.getElementById('description');
+document.getElementById('btnSave').addEventListener('click',createTask);
 
 afficherTask();
 
+function createTask() {
+    // Create task object
+    let newTask = {
+        title : title.value,
+        type : type.value,
+        priority : priority.value,
+        status : Status.value,
+        date : date.value,
+        description : description.value,
+    }
+    // Ajoutez object au Array
+    tasks.push(newTask);
+    // close modal
+    close();
+    // intialisation 
+    initTaskForm() 
+    // refresh tasks
+    afficherTask();
+}
+
 function afficherTask() {
-    // Remove tasks elements
-    toDoTask.innerHTML = "";
-    inProgressTask.innerHTML = "";
-    doneTask.innerHTML = "";
+    // remove tasks elements
+    clearTask();
+    
     // initialiser task form
+
+    let countHash = 0; // Compteur Hashtag
+    let countToDo = 0, countInProgress = 0, countDone = 0; // compteur number of tasks
+    
     for (let i = 0; i < tasks.length; i++) {
-        countHash++;
+        countHash++; // incrémentation Hashtag
+
         if (tasks[i].status == "To Do") {
+            countToDo++; // incrémentation compteur To Do
+
             toDoTask.innerHTML += `
-            <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
+            <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white" data-bs-toggle="modal" data-bs-target="#modalTask" onclick = "editTask(${i})">
                 <div class="">
                     <i class="fa-regular fa-circle-question fa-lg pe-3 pt-3"></i>
                 </div>
@@ -40,8 +75,10 @@ function afficherTask() {
 			</button>  `
         }
         else if (tasks[i].status == "In Progress"){
+            countInProgress++; // incrémentation compteur In Progress
+
             inProgressTask.innerHTML += `
-            <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
+            <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white" data-bs-toggle="modal" data-bs-target="#modalTask" onclick = "editTask(${i})">
                 <div class="">
                     <i class="fa fa-circle-notch fa-lg pe-3 pt-3"></i>
                 </div>
@@ -59,8 +96,10 @@ function afficherTask() {
 			</button>`
         }
         else {
+            countDone++; // incrémentation compteur Done
+
             doneTask.innerHTML += `
-            <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white">
+            <button class="border-0 mb-2px d-flex px-3 pb-3 pt-2 bg-white" data-bs-toggle="modal" data-bs-target="#modalTask" onclick = "editTask(${i})">
                 <div class="">
                     <i class="fa-regular fa-circle-check fa-lg pe-3 pt-3"></i>
                 </div>
@@ -80,30 +119,29 @@ function afficherTask() {
 			</button>`
         }
     }
-}
-function createTask() {
-    // initialiser task form
-
-    // Afficher le boutton save
-
-    // Ouvrir modal form
-
+countToDoTasks.innerText = countToDo;
+countInProgressTasks.innerText = countInProgress;
+countDoneTasks.innerText = countDone;
 }
 
-function saveTask() {
-    // Recuperer task attributes a partir les champs input
+function editTask(i) {
+    // affichage task 
+    // let feature = document.getElementById('feature');
+    // let bug = document.getElementById('bug');
 
-    // Créez task object
-
-    // Ajoutez object au Array
-
-    // refresh tasks
-
-}
-
-function editTask() {
-    // Initialisez task form
-
+    title.value = tasks[i].title;
+    type.value = tasks[i].type; 
+    priority.value = tasks[i].priority; 
+    Status.value = tasks[i].status; 
+    date.value = tasks[i].date; 
+    description.value = tasks[i].description;  
+    
+    // if(feature.value == tasks[i].type){
+    //     feature.checked = true;
+    // }
+    // else{
+    //     bug.checked = true;
+    // }
     // Affichez updates
 
     // Delete Button
@@ -140,12 +178,17 @@ function deleteTask() {
 
 function initTaskForm() {
     // Clear task form from data
-
-    // Hide all action buttons
+    document.getElementById('form').reset();
 }
 
-function reloadTasks() {
-    // Remove tasks elements
-
-    // Set Task count
+function clearTask(){
+    // clear all tasks
+    toDoTask.innerHTML = "";
+    inProgressTask.innerHTML = "";
+    doneTask.innerHTML = "";
 }
+
+function close(){
+    document.getElementById('btnClose').click();
+}
+
