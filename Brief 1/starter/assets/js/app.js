@@ -15,6 +15,12 @@ let priority = document.getElementById('priority');
 let Status = document.getElementById('status');
 let date = document.getElementById('date');
 let description = document.getElementById('description');
+document.getElementById('addTask').addEventListener('click',()=>{
+    btnSave.style.display = 'block'
+    btnEdit.style.display = 'none'
+    btnDelete.style.display = 'none'
+    initTaskForm()
+});
 document.getElementById('btnSave').addEventListener('click',createTask);
 
 afficherTask();
@@ -33,8 +39,6 @@ function createTask() {
     tasks.push(newTask);
     // close modal
     close();
-    // intialisation 
-    initTaskForm() 
     // refresh tasks
     afficherTask();
 }
@@ -125,55 +129,59 @@ countDoneTasks.innerText = countDone;
 }
 
 function editTask(i) {
+    btnSave.style.display = 'none'
+    btnEdit.style.display = 'block'
+    btnDelete.style.display = 'block'
     // affichage task 
-    // let feature = document.getElementById('feature');
-    // let bug = document.getElementById('bug');
+    let Feature = document.getElementById('feature');
+    let bug = document.getElementById('bug');
 
     title.value = tasks[i].title;
-    type.value = tasks[i].type; 
     priority.value = tasks[i].priority; 
     Status.value = tasks[i].status; 
     date.value = tasks[i].date; 
     description.value = tasks[i].description;  
     
-    // if(feature.value == tasks[i].type){
-    //     feature.checked = true;
-    // }
-    // else{
-    //     bug.checked = true;
-    // }
-    // Affichez updates
-
-    // Delete Button
-
-    // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
-
-    // Definir FORM INPUTS
-
-    // Ouvrir Modal form
+    if(feature.value == tasks[i].type){
+        Feature.checked = true;
+    }
+    else{
+        bug.checked = true;
+    }
+    document.getElementById('btnEdit').onclick = ()=>{
+        updateTask(i)
+    }
+    document.getElementById('btnDelete').onclick = ()=>{
+        deleteTask(i)
+    }
 }
 
-function updateTask() {
-    // GET TASK ATTRIBUTES FROM INPUTS
-
-    // Créez task object
-
-    // Remplacer ancienne task par nouvelle task
-
-    // Fermer Modal form
-
-    // Refresh tasks
-
-}
-
-function deleteTask() {
-    // Get index of task in the array
-
-    // Remove task from array by index splice function
-
-    // close modal form
-
+function updateTask(i) {
+    // Create task object
+    let newTask = {
+        title : title.value,
+        type : type.value,
+        priority : priority.value,
+        status : Status.value,
+        date : date.value,
+        description : description.value,
+    }
+    // Ajoutez object au Array
+    tasks.splice(i,1, newTask);
+    // close modal
+    close();
     // refresh tasks
+    afficherTask();
+
+}
+
+function deleteTask(i) {
+    // Remove task from array by index splice function
+    tasks.splice(i,1);
+    // close modal form
+    close();
+    // refresh tasks
+    afficherTask();
 }
 
 function initTaskForm() {
