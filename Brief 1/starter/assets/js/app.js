@@ -10,7 +10,6 @@ let countToDoTasks = document.getElementById('to-do-tasks-count');
 let countInProgressTasks = document.getElementById('in-progress-tasks-count');
 let countDoneTasks = document.getElementById('done-tasks-count');
 let title = document.getElementById('title');
-let type = document.querySelector('.form-check-input:checked');
 let priority = document.getElementById('priority');
 let Status = document.getElementById('status');
 let date = document.getElementById('date');
@@ -26,6 +25,7 @@ document.getElementById('btnSave').addEventListener('click',createTask);
 afficherTask();
 
 function createTask() {
+    let type = document.querySelector('.form-check-input:checked');
     // Create task object
     let newTask = {
         title : title.value,
@@ -142,7 +142,7 @@ function editTask(i) {
     date.value = tasks[i].date; 
     description.value = tasks[i].description;  
     
-    if(feature.value == tasks[i].type){
+    if(Feature.value == tasks[i].type){
         Feature.checked = true;
     }
     else{
@@ -157,6 +157,7 @@ function editTask(i) {
 }
 
 function updateTask(i) {
+    let type = document.querySelector('.form-check-input:checked');
     // Create task object
     let newTask = {
         title : title.value,
