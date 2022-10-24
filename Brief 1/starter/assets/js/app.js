@@ -3,11 +3,11 @@
  * 
  */
 
-let title = document.querySelector('#title');
-let priority = document.querySelector('#priority');
-let Status = document.getElementById('status');
-let date = document.getElementById('date');
-let description = document.getElementById('description');
+let titleTask = document.querySelector('#title');
+let priorityTask = document.querySelector('#priority');
+let StatusTask = document.getElementById('status');
+let dateTask = document.getElementById('date');
+let descriptionTask = document.getElementById('description');
 document.getElementById('addTask').addEventListener('click',()=>{
     btnSave.style.display = 'block'
     btnEdit.style.display = 'none'
@@ -19,14 +19,14 @@ document.getElementById('btnSave').addEventListener('click',createTask);
 afficherTask();
 
 function createTask() {
-    let type = document.querySelector('.form-check-input:checked');
+    let typeTask = document.querySelector('.form-check-input:checked');
     // Create task object
     let newTask = {
-        title : title.value,
-        type : type.value,
-        priority : priority.value,
-        status : Status.value,
-        date : date.value,
+        title : titleTask.value,
+        type : typeTask.value,
+        priority : priorityTask.value,
+        status : StatusTask.value,
+        date : dateTask.value,
         description : description.value,
     }
     // Ajoutez object au Array
@@ -137,11 +137,11 @@ function editTask(i) {
     let Feature = document.getElementById('feature');
     let bug = document.getElementById('bug');
     // affichage task
-    title.value = tasks[i].title;
-    priority.value = tasks[i].priority; 
-    Status.value = tasks[i].status; 
-    date.value = tasks[i].date; 
-    description.value = tasks[i].description;  
+    titleTask.value = tasks[i].title;
+    priorityTask.value = tasks[i].priority; 
+    StatusTask.value = tasks[i].status; 
+    dateTask.value = tasks[i].date; 
+    descriptionTask.value = tasks[i].description;  
     // check Type
     if(Feature.value == tasks[i].type){
         Feature.checked = true;
@@ -158,14 +158,14 @@ function editTask(i) {
 }
 
 function updateTask(i) {
-    let type = document.querySelector('.form-check-input:checked');
+    let typeTask = document.querySelector('.form-check-input:checked');
     // Create task object
     let newTask = {
-        title : title.value,
-        type : type.value,
-        priority : priority.value,
-        status : Status.value,
-        date : date.value,
+        title : titleTask.value,
+        type : typeTask.value,
+        priority : priorityTask.value,
+        status : StatusTask.value,
+        date : dateTask.value,
         description : description.value,
     }
     // Ajoutez object au Array
