@@ -3,14 +3,8 @@
  * 
  */
 
-let toDoTask = document.getElementById('toDoTask');
-let inProgressTask = document.getElementById('inProgressTask');
-let doneTask = document.getElementById('doneTask');
-let countToDoTasks = document.getElementById('to-do-tasks-count');
-let countInProgressTasks = document.getElementById('in-progress-tasks-count');
-let countDoneTasks = document.getElementById('done-tasks-count');
-let title = document.getElementById('title');
-let priority = document.getElementById('priority');
+let title = document.querySelector('#title');
+let priority = document.querySelector('#priority');
 let Status = document.getElementById('status');
 let date = document.getElementById('date');
 let description = document.getElementById('description');
@@ -44,6 +38,12 @@ function createTask() {
 }
 
 function afficherTask() {
+    let countToDoTasks = document.getElementById('to-do-tasks-count');
+    let countInProgressTasks = document.getElementById('in-progress-tasks-count');
+    let countDoneTasks = document.getElementById('done-tasks-count');
+    let toDoTask = document.getElementById('toDoTask');
+    let inProgressTask = document.getElementById('inProgressTask');
+    let doneTask = document.getElementById('doneTask');
     // remove tasks elements
     clearTask();
     
@@ -129,19 +129,20 @@ countDoneTasks.innerText = countDone;
 }
 
 function editTask(i) {
+    // affichge Boutton Edit et Delete
     btnSave.style.display = 'none'
     btnEdit.style.display = 'block'
     btnDelete.style.display = 'block'
-    // affichage task 
+    
     let Feature = document.getElementById('feature');
     let bug = document.getElementById('bug');
-
+    // affichage task
     title.value = tasks[i].title;
     priority.value = tasks[i].priority; 
     Status.value = tasks[i].status; 
     date.value = tasks[i].date; 
     description.value = tasks[i].description;  
-    
+    // check Type
     if(Feature.value == tasks[i].type){
         Feature.checked = true;
     }
