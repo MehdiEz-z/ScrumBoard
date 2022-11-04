@@ -7,7 +7,9 @@
     //ROUTING
     if(isset($_POST['save']))        saveTask();
     if(isset($_POST['update']))      updateTask();
-    if(isset($_POST['delete']))      deleteTask();
+    // if(isset($_POST['delete']))      deleteTask();
+    if(isset($_GET['Sid']))      deleteTask();
+    
 
     function saveTask()
     {
@@ -61,7 +63,7 @@
                     <div class="flex-fill w-75">
                         <div class="fs-14px lh-12 mb-2px fw-bold text-dark text-truncate">'.$rows['title'].'</div>
                         <div class="mb-1 fs-12px">
-                            <div class="text-gray-600 flex-1">#'.$counter.' created in '.$rows['date'].'</div>
+                            <div class="text-gray-600 flex-1">#'.$rows['id'].' created in '.$rows['date'].'</div>
                             <div class="text-gray-900 flex-1 text-truncate" title="'.$rows['description'].'">'.$rows['description'].'</div>
                         </div>
                         <div class="mb-1">
@@ -72,6 +74,7 @@
                     <div class="col-1">
                         <span>
                             <a href="update.php?id='.$rows['id'].'" ><i class="btn-modif fas fa-edit text-green fs-5 ms-3 pt-2"></i></a>
+                            <a href="index.php?Sid='.$rows['id'].'" ><i name = "delete" class="btn-modif fa-solid fa-trash text-danger fs-5 ms-3 pt-2"></i></a>
                         </span>
                     </div>
                 </button> ';
@@ -116,7 +119,7 @@
     {
         //CODE HERE
         require 'database.php';
-        $id         = $_POST['task-id'];
+        $id         = $_GET['Sid'];
         $requete    ="DELETE FROM tasks where id='$id'";
         $query      =mysqli_query($connect,$requete);
         if($query){

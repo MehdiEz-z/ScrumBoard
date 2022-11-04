@@ -3,9 +3,9 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         
-    $requete ="SELECT * FROM tasks WHERE id ='$id'";
-    $query  = mysqli_query($connect,$requete);
-    $rows   = mysqli_fetch_assoc($query);
+    $requete    ="SELECT * FROM tasks WHERE id ='$id'";
+    $query      = mysqli_query($connect,$requete);
+    $rows       = mysqli_fetch_assoc($query);
 
 ?>
 
@@ -86,7 +86,6 @@
                             </div>
                             <div class="modal-footer">
                                 <a href="index.php" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-                                <button type="submit" name="delete" class="btn btn-danger task-action-btn" id="btnDelete">Delete</a>
                                 <button type="submit" name="update" class="btn btn-warning task-action-btn" id="btnUpdate">Update</a>
                             </div>
                         </form>
