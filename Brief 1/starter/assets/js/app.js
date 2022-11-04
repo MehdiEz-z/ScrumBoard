@@ -3,14 +3,14 @@
  * 
  */
 
-let titleTask = document.querySelector('#title');
-let priorityTask = document.querySelector('#priority');
-let StatusTask = document.getElementById('status');
-let dateTask = document.getElementById('date');
+let titleTask       = document.querySelector('#title');
+let priorityTask    = document.querySelector('#priority');
+let StatusTask      = document.getElementById('status');
+let dateTask        = document.getElementById('date');
 let descriptionTask = document.getElementById('description');
 document.getElementById('addTask').addEventListener('click',()=>{
-    btnSave.style.display = 'block'
-    btnEdit.style.display = 'none'
+    btnSave.style.display   = 'block'
+    btnEdit.style.display   = 'none'
     btnDelete.style.display = 'none'
     initTaskForm()
 });
@@ -22,11 +22,11 @@ function createTask() {
     let typeTask = document.querySelector('.form-check-input:checked');
     // Create task object
     let newTask = {
-        title : titleTask.value,
-        type : typeTask.value,
-        priority : priorityTask.value,
-        status : StatusTask.value,
-        date : dateTask.value,
+        title       : titleTask.value,
+        type        : typeTask.value,
+        priority    : priorityTask.value,
+        status      : StatusTask.value,
+        date        : dateTask.value,
         description : description.value,
     }
     // Ajoutez object au Array
@@ -38,12 +38,12 @@ function createTask() {
 }
 
 function afficherTask() {
-    let countToDoTasks = document.getElementById('to-do-tasks-count');
-    let countInProgressTasks = document.getElementById('in-progress-tasks-count');
-    let countDoneTasks = document.getElementById('done-tasks-count');
-    let toDoTask = document.getElementById('toDoTask');
-    let inProgressTask = document.getElementById('inProgressTask');
-    let doneTask = document.getElementById('doneTask');
+    let countToDoTasks         = document.getElementById('to-do-tasks-count');
+    let countInProgressTasks   = document.getElementById('in-progress-tasks-count');
+    let countDoneTasks         = document.getElementById('done-tasks-count');
+    let toDoTask               = document.getElementById('toDoTask');
+    let inProgressTask         = document.getElementById('inProgressTask');
+    let doneTask               = document.getElementById('doneTask');
     // remove tasks elements
     clearTask();
     
@@ -123,25 +123,25 @@ function afficherTask() {
 			</button>`
         }
     }
-countToDoTasks.innerText = countToDo;
-countInProgressTasks.innerText = countInProgress;
-countDoneTasks.innerText = countDone;
+countToDoTasks.innerText         = countToDo;
+countInProgressTasks.innerText   = countInProgress;
+countDoneTasks.innerText         = countDone;
 }
 
 function editTask(i) {
     // affichge Boutton Edit et Delete
-    btnSave.style.display = 'none'
-    btnEdit.style.display = 'block'
+    btnSave.style.display   = 'none'
+    btnEdit.style.display   = 'block'
     btnDelete.style.display = 'block'
     
     let Feature = document.getElementById('feature');
     let bug = document.getElementById('bug');
     // affichage task
-    titleTask.value = tasks[i].title;
-    priorityTask.value = tasks[i].priority; 
-    StatusTask.value = tasks[i].status; 
-    dateTask.value = tasks[i].date; 
-    descriptionTask.value = tasks[i].description;  
+    titleTask.value         = tasks[i].title;
+    priorityTask.value      = tasks[i].priority; 
+    StatusTask.value        = tasks[i].status; 
+    dateTask.value          = tasks[i].date; 
+    descriptionTask.value   = tasks[i].description;  
     // check Type
     if(Feature.value == tasks[i].type){
         Feature.checked = true;
@@ -161,11 +161,11 @@ function updateTask(i) {
     let typeTask = document.querySelector('.form-check-input:checked');
     // Create task object
     let newTask = {
-        title : titleTask.value,
-        type : typeTask.value,
-        priority : priorityTask.value,
-        status : StatusTask.value,
-        date : dateTask.value,
+        title      : titleTask.value,
+        type        : typeTask.value,
+        priority    : priorityTask.value,
+        status      : StatusTask.value,
+        date        : dateTask.value,
         description : description.value,
     }
     // Ajoutez object au Array
