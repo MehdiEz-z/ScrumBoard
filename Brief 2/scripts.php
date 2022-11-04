@@ -26,8 +26,6 @@
         if($query){
             //SQL INSERT
             $_SESSION['message'] = "Task has been added successfully !";
-        }else{
-            echo "<script>alert('fail')</script>";
         }
 		header('location: index.php');
         
@@ -43,9 +41,11 @@
             WHERE tasks.type_id = types.id AND tasks.priority_id = priorities.id AND tasks.status_id = $status";
 
         $query      = mysqli_query($connect, $requete);
-  
+        
+        $counter    =0;
         while($rows = mysqli_fetch_assoc($query)){
 
+            $counter ++;
             if($status == 1){
                 $icon = 'far fa-question-circle';   
             }else if($status == 2){
@@ -61,7 +61,7 @@
                     <div class="flex-fill w-75">
                         <div class="fs-14px lh-12 mb-2px fw-bold text-dark text-truncate">'.$rows['title'].'</div>
                         <div class="mb-1 fs-12px">
-                            <div class="text-gray-600 flex-1">#'.$rows['id'].' created in '.$rows['date'].'</div>
+                            <div class="text-gray-600 flex-1">#'.$counter.' created in '.$rows['date'].'</div>
                             <div class="text-gray-900 flex-1 text-truncate" title="'.$rows['description'].'">'.$rows['description'].'</div>
                         </div>
                         <div class="mb-1">
