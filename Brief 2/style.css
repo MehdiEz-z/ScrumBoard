@@ -1,0 +1,7 @@
+.btn-modif{
+    visibility: hidden;
+}
+
+.btn-global:hover .btn-modif{
+    visibility: visible;
+}
